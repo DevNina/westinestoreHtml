@@ -1,0 +1,75 @@
+//font
+@font-face { 
+	font-family: 'freigtexprobook'; 
+	src: url('../font/freigtexprobook-webfont.eot'); /* IE9 Compat Modes */ 
+	src: url('../font/freigtexprobook-webfont.eot?#iefix') format('embedded-opentype'), 
+	url('../font/freigtexprobook-webfont.woff') format('woff'), 
+	url('../font/freigtexprobook-webfont.ttf') format('truetype'),
+	url('../font/freigtexprobook-webfont.svg#freigtexprobook-webfont') format('svg'); /* Legacy iOS */ 
+	font-weight: normal;
+}
+@font-face { 
+	font-family: 'Graphik-Starwood'; 
+	src: url('../font/Graphik-Starwood-Web-Regular.eot'); /* IE9 Compat Modes */ 
+	src: url('../font/Graphik-Starwood-Web-Regular.eot?#iefix') format('embedded-opentype'), 
+	url('../font/Graphik-Starwood-Web-Regular.woff') format('woff'), 
+	url('../font/Graphik-Starwood-Web-Regular.ttf') format('truetype'), 
+	url('../font/Graphik-Starwood-Web-Regular.svg#Graphik-Starwood-Web-Regular') format('svg'); /* Legacy iOS */ 
+	font-weight: normal;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+.border-box();
+
+body,* {
+    font-family: "Graphik-Starwood",Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    color: #333333;
+}
+body{
+	background-color: #eeeeee;
+}
+.max-container{
+	max-width: 1440px;
+	position: relative;
+	margin:0 auto;
+	background-color: #ffffff;
+}
+
+ol ol, ol ul, ul ol, ul li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+img{
+	max-width: 100%;
+	vertical-align: middle;
+	display: block;
+}
+
+.btn-green{
+	display: inline-block;
+	padding: 10px 15px;
+	background-color: @bg-button;
+	.font(14px,@base-text-color,normal,1);
+	text-transform: uppercase;
+	.a-state-default();
+}
+
+.yellow-border25{
+	border-bottom: 25px solid #fff263;
+}
+.yellow-border4{
+	border-bottom: 4px solid #fff263;
+}
+
+.visibility-only-mobile{
+	display: none;
+	@media screen and (max-width: 767px){
+		display: block;
+	}
+}

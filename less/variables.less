@@ -1,0 +1,295 @@
+// default color
+@highlight-color:rgb(255, 242, 99);
+@base-bg-light:rgb(105, 108, 112);
+@base-bg:rgb(81, 85, 90);
+@base-bg-deep:rgb(64, 67, 72);
+@base-text-color:#51555a;
+@base-text-color-light:#b7b8b9;
+@text-color-highlight:#bad9c9;
+@bg-button:#bad9c9;
+
+
+//radius
+@radius:4px;
+
+
+//max-container
+@max-container:1440px;
+
+
+//font-family
+@font-Arial:"Arial";
+@font-freigtexprobook:"freigtexprobook";
+
+
+
+//border
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+//a:hover :active :focus :visited
+.a-state-default(){
+	text-decoration: none;
+	&:hover, &:active, &:focus, &:visited{
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.a-state(@color,@t-decoration){
+	text-decoration: none;
+	&:hover, &:active, &:focus, &:visited{
+		text-decoration: @t-decoration;
+		color: @color;
+	}
+}
+
+
+//text-font
+.normal-font(){
+	font-size: 14px;
+	color: @base-text-color;
+	font-weight: normal;
+	line-height: 1;
+}
+.font(@size,@color,@f-w,@l-h){
+	font-size: @size;
+	color: @color;
+	font-weight: @f-w;
+	line-height: @l-h;
+}
+.font-family(title){
+	font-family: "freigtexprobook",georgia,sans-serif;
+}
+.font-family(general){
+	font-family: "Graphik-Starwood",Arial,sans-serif;
+}
+.wrap() {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+//box
+.border-box() {  
+	*, *:after, *:before { 
+		-webkit-box-sizing: border-box; 
+		-moz-box-sizing: border-box;
+		box-sizing: border-box; 
+	}  
+}  
+
+// text img center
+.center(text-x) { 
+	text-align: center; 
+}  
+.center(text-y) { 
+	display: table-cell; 
+	vertical-align: middle; 
+}  
+  
+// block center
+.center(auto-x) { 
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+}  
+
+//ellipsis
+.ellipsis() {  
+	white-space: normal; 
+	word-wrap: break-word; 
+	word-break: break-all;  
+	-o-text-overflow: ellipsis; 
+	-ms-text-overflow: ellipsis; 
+	text-overflow:ellipsis; 
+	overflow:hidden;  
+}  
+//only support webkit browser,others can do it as height: 90px; line-height: 30px; -webkit-line-clamp: 3; 
+.ellipsis-mult(@n) {  
+	display: -webkit-box; 
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @n; 
+	word-break: break-all;  
+	-o-text-overflow: ellipsis; 
+	-ms-text-overflow: ellipsis; 
+	text-overflow:ellipsis; 
+	overflow: hidden;  
+}  
+
+//responsive banner
+.banner-wrap(@persent){
+	position: relative;
+    width: 100%;
+    &:after{
+    	content: "";
+	    display: block;
+	    padding-bottom: @persent;
+    }
+}
+.banner-item(){
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// clear float
+.clearfix() {  
+	*zoom: 1;  
+	&:after { 
+		display: block; 
+		clear: both; 
+		content: ''; 
+		visibility: hidden; 
+		height: 0; 
+	}  
+}  
+.clearfix(table) {  
+	*zoom: 1;  
+	&:before, &:after { 
+		content: " "; 
+		display: table; 
+		clear: both; 
+	}  
+}  
+
+// zebra-lists
+.zebra-lists(odd, @color) {  
+	&.odd {  
+		>li:nth-child(odd) { 
+			background-color: @color;
+		}  
+	}  
+}  
+.zebra-lists(even, @color) {  
+	&.even {  
+		>li:nth-child(even) { 
+			background: green; 
+		}  
+	}  
+}
+
+// zebra-table
+.zebra-table(odd, @color) {  
+	&.odd {  
+		>tr:nth-child(odd) { 
+			background-color: @color;
+		}  
+	}  
+}  
+.zebra-table(even, @color) {  
+	&.even {  
+		>tr:nth-child(even) { 
+			background: @color; 
+		}  
+	}  
+}  
+
+
+//graphs  
+
+// triangle  
+.triangle(@width: 4px,@color: #000) {  
+	display: inline-block;  
+	width: 0;  
+	height: 0;  
+	vertical-align: middle;  
+	border-top: @width solid @color;  
+	border-left: @width solid transparent;  
+	border-right: @width solid transparent;  
+}  
+
+//arrow
+.arrow(down,@width,@height,@border-width,@top,@bottom,@left,@right,@color){
+	position: relative;
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: @top;
+	    bottom:@bottom;
+	    left: @left;
+	    right: @right;
+	    display: inline-block;
+	    border-right: @border-width solid @color;
+	    border-bottom: @border-width solid @color;
+	    width: @width;
+	    height: @height;
+	    transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    -moz-transform: rotate(45deg);
+	    -webkit-transform: rotate(45deg);
+	    -o-transform: rotate(45deg);
+	}
+}
+.arrow(up,@width,@height,@border-width,@top,@bottom,@left,@right,@color){
+	position: relative;
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: @top;
+	    bottom:@bottom;
+	    left: @left;
+	    right: @right;
+	    display: inline-block;
+	    border-right: @border-width solid @color;
+	    border-bottom: @border-width solid @color;
+	    width: @width;
+	    height: @height;
+	    transform: rotate(-135deg);
+	    -ms-transform: rotate(-135deg);
+	    -moz-transform: rotate(-135deg);
+	    -webkit-transform: rotate(-135deg);
+	    -o-transform: rotate(-135deg);
+	}
+}
+.arrow(right,@width,@height,@border-width,@top,@bottom,@left,@right,@color){
+	position: relative;
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: @top;
+	    bottom:@bottom;
+	    left: @left;
+	    right: @right;
+	    display: inline-block;
+	    border-right: @border-width solid @color;
+	    border-bottom: @border-width solid @color;
+	    width: @width;
+	    height: @height;
+	    transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	    -moz-transform: rotate(-45deg);
+	    -webkit-transform: rotate(-45deg);
+	    -o-transform: rotate(-45deg);
+	}
+}
+
+.arrow(left,@width,@height,@border-width,@top,@bottom,@left,@right,@color){
+	position: relative;
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: @top;
+	    bottom:@bottom;
+	    left: @left;
+	    right: @right;
+	    display: inline-block;
+	    border-right: @border-width solid @color;
+	    border-bottom: @border-width solid @color;
+	    width: @width;
+	    height: @height;
+	    transform: rotate(-225deg);
+	    -ms-transform: rotate(-225deg);
+	    -moz-transform: rotate(-225deg);
+	    -webkit-transform: rotate(-225deg);
+	    -o-transform: rotate(-225deg);
+	}
+}
+  
